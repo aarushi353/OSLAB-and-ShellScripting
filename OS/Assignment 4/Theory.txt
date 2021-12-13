@@ -1,0 +1,26 @@
+1. Preemptive Scheduling: 
+Preemptive scheduling is used when a process switches from running state to ready state or from the waiting state to ready state.
+The resources (mainly CPU cycles) are allocated to the process for a limited amount of time and then taken away, and the process 
+is again placed back in the ready queue if that process still has CPU burst time remaining. That process stays in the ready queue 
+till it gets its next chance to execute. 
+
+Algorithms based on preemptive scheduling are: Round Robin (RR),Shortest Remaining Time First (SRTF), Priority (preemptive version), etc. 
+
+2. Non-preemptive Scheduling is used when a process terminates, or a process switches from running to the waiting state. In this scheduling, 
+once the resources (CPU cycles) are allocated to a process, the process holds the CPU till it gets terminated or reaches a waiting state. 
+In the case of non-preemptive scheduling does not interrupt a process running CPU in the middle of the execution. Instead, it waits till 
+the process completes its CPU burst time, and then it can allocate the CPU to another process. 
+
+Algorithms based on non-preemptive scheduling are: Shortest Job First (SJF basically non preemptive) and Priority (non preemptive version), etc. 
+
+1. FCFS: FCFS is the simplest of all the Disk Scheduling Algorithms. In FCFS, the requests are addressed in the order they arrive in the disk queue.Let us understand this with the help of an example.
+
+Advantages:
+
+Every request gets a fair chance
+No indefinite postponement
+Disadvantages:
+
+Does not try to optimize seek time
+May not provide the best possible service
+
