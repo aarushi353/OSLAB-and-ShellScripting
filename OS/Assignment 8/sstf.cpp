@@ -1,86 +1,47 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include<cstdlib>
+#include<vector>
 using namespace std;
- 
-// Calculates difference of each 
-// track number with the head position
-void calculatedifference(int request[], int head,
-                         int diff[][2], int n)
+void sstf(int a[],int n,int h)
 {
-    for(int i = 0; i < n; i++)
-    {
-        diff[i][0] = abs(head - request[i]);
-    }
+	vector<int> s;
+	int size=n;
+	int ad=0;
+	int pos,min;
+	while(n>0)
+	{	
+		min=abs(h-a[0]);
+		for(int i=0;i<n;i++)
+		{
+			if(min >= abs(h-a[i]))
+			{
+				min=abs(h-a[i]);
+				pos=i;
+			}
+		}
+		ad+=min;
+		s.push_back(a[pos]);
+		h=a[pos];
+		for(int i=pos;i<n;i++)
+			a[i]=a[i+1];
+		n--;
+	}
+	cout<<"Absolute difference= "<<ad<<endl;
+	cout<<"Sequence: ";
+	for(int i=0;i<size;i++)
+		cout<<s[i]<<" ";
 }
- 
-// Find unaccessed track which is
-// at minimum distance from head
-int findMIN(int diff[][2], int n)
-{
-    int index = -1;
-    int minimum = 1e9;
-   
-    for(int i = 0; i < n; i++)
-    {
-        if (!diff[i][1] && minimum > diff[i][0])
-        {
-            minimum = diff[i][0];
-            index = i;
-        }
-    }
-    return index;
-}
- 
-void shortestSeekTimeFirst(int request[],
-                           int head, int n)
-{
-    if (n == 0)
-    {
-        return;
-    }
-     
-    // Create array of objects of class node   
-    int diff[n][2] = { { 0, 0 } };
-     
-    // Count total number of seek operation  
-    int seekcount = 0;
-     
-    // Stores sequence in which disk access is done
-    int seeksequence[n + 1] = {0};
-     
-    for(int i = 0; i < n; i++)
-    {
-        seeksequence[i] = head;
-        calculatedifference(request, head, diff, n);
-        int index = findMIN(diff, n);
-        diff[index][1] = 1;
-         
-        // Increase the total count
-        seekcount += diff[index][0];
-         
-        // Accessed track is now new head
-        head = request[index];
-    }
-    seeksequence[n] = head;
-     
-    cout << "Total number of seek operations = "
-         << seekcount << endl;
-    cout << "Seek sequence is : " << "\n";
-     
-    // Print the sequence
-    for(int i = 0; i <= n; i++)
-    {
-        cout << seeksequence[i] << "\n";
-    }
-}
- 
-// Driver code
 int main()
 {
-    int n = 8;
-    int proc[n] = { 176, 79, 34, 60, 92, 11, 41, 114 };
-     
-    shortestSeekTimeFirst(proc, 50, n);
-     
-    return 0;
+	int n,h;
+	cout<<"Size: ";
+	cin>>n;
+	cout<<"Head: ";
+	cin>>h;
+	cout<<"Sequence:\n";
+	int *a=new int[n];
+	for(int i=0;i<n;i++)
+		cin>>a[i];
+	sstf(a,n,h);
+	return 0;
 }
- 
