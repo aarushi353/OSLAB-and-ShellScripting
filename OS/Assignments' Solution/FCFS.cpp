@@ -5,7 +5,8 @@ int main(){
     int process;
     cout<<"Input the number of processes"<<endl;
     cin>>process;
-    int burst[process], arr[process], turn_around[process], wait[process], service[process];
+    int burst[process], arr[process], turn_around[process], wait[process], 
+    service[process];
     int total_wait=0;
     int total_turnaround = 0;
 

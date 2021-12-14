@@ -2,13 +2,13 @@
 #include<cstdlib>
 #include<vector>
 using namespace std;
-void sstf(int a[],int n,int h)
-{
-	vector<int> s;
+
+void sstf(int a[],int n,int h){
+    vector<int> s;
 	int size=n;
 	int ad=0;
 	int pos,min;
-	while(n>0)
+    while(n>0)
 	{	
 		min=abs(h-a[0]);
 		for(int i=0;i<n;i++)
@@ -31,6 +31,7 @@ void sstf(int a[],int n,int h)
 	for(int i=0;i<size;i++)
 		cout<<s[i]<<" ";
 }
+
 int main()
 {
 	int n,h;
