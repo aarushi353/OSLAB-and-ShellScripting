@@ -34,7 +34,7 @@ for (i = 0; i < n; i++) {
 }
 int y = 0;
 for (k = 0; k < 5; k++) {
-	for (i = 0; i < n; i++) {
+	for (i = 0; i < 5; i++) {
 	if (f[i] == 0) {
 
 		int flag = 0;
@@ -49,7 +49,7 @@ for (k = 0; k < 5; k++) {
 		ans[ind++] = i;
 		for (y = 0; y < m; y++)
 			avail[y] += alloc[i][y];
-		f[i] = 1;
+     		f[i] = 1;
 		}
 	}
 	}
@@ -58,9 +58,9 @@ for (k = 0; k < 5; k++) {
 cout << "Following is the SAFE Sequence" << endl;
 for (i = 0; i < n - 1; i++)
 	cout << " P" << ans[i] << " ->";
-cout << " P" << ans[n - 1] <<endl;
+    cout << " P" << ans[n - 1] <<endl;
 
 	return (0);
 }
 
-// This code is contributed by SHUBHAMSINGH10
+
